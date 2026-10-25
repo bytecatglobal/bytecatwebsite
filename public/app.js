@@ -14,6 +14,7 @@ form.addEventListener('submit',async(event)=>{
   const response=await fetch(`${api}/subscribe`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email.value,marketing:document.querySelector('#marketing').checked,website:document.querySelector('#website').value}),signal:AbortSignal.timeout(20000)});
   const result=await response.json();if(!response.ok)throw new Error(result.error||'Your request could not be saved. Please try again.');
   if(result.status==='check_email'){
+   window.dispatchEvent(new Event('bytecat:freebie-request'));
    document.querySelector('#email-success').hidden=false;document.querySelector('#sent-email').textContent=email.value;form.hidden=true;document.querySelector('#email-success').focus();return;
   }
   const download=new URL(result.downloadUrl),base=new URL(api);if(download.origin!==base.origin||download.pathname!=='/download')throw new Error('Your download link could not be created. Please try again.');
