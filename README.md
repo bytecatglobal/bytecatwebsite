@@ -2,6 +2,33 @@
 
 Free 2027 cat calendar website with on-site email collection. Static frontend on Vercel, Cloudflare Worker API, and a private Cloudflare D1 database. Node 20+ for building; Node 22+ for SQLite-backed integration tests (tested with Node 24). No package dependencies.
 
+## Brand pages and search
+
+- / is the Byte Cat Studio brand homepage.
+- /freebies/ is the printable library.
+- /freebies/2027-cat-calendar/ is the permanent calendar landing page.
+- Existing homepage links with #get, #collection, #details or #updates forward to the calendar page and preserve campaign query parameters.
+
+scripts/pages.mjs generates these pages from the original calendar template during the build. It also generates canonical metadata, Open Graph/Twitter previews, Organization/WebSite/CreativeWork/Breadcrumb structured data, robots.txt, sitemap.xml, and the favicon using the unchanged original logo. public/brand.css contains the additional brand styles. Search and AI answer inclusion depend on external crawlers; metadata does not guarantee rankings.
+
+## Resend verification upgrade
+
+Sender domain mail.bytecatstudio.com is verified in Resend. Three new DNS records were added under mail; Zoho and website records were preserved. Backend confirmation code and D1 tables are deployed. Email mode is inactive until the restricted sending credential is approved and configured.
+
+Activation order:
+1. Store a Resend Sending access key scoped to mail.bytecatstudio.com as encrypted Worker secret RESEND_API_KEY. Never commit or put it in frontend configuration.
+2. Set Worker variable DELIVERY_MODE to verified_email and deploy.
+3. Set Vercel build variable EMAIL_DELIVERY to verified_email and redeploy so signup and privacy copy match.
+4. Test an approved address: pending request, delivered email, confirmation GET with no subscription side effect, explicit confirmation POST, verified subscriber/consent, ZIP download.
+
+In email mode, the API responds with check_email rather than a download token. Resend sends a 24-hour confirmation link. A GET only displays a confirmation button, so email scanners cannot opt people in. A POST saves verification and optional consent atomically, then provides a 30-minute download. Repeated confirmation is idempotent. Marketing remains optional. There are per-IP and per-recipient rate limits and a conservative 90 email requests/day ceiling; review the actual Resend plan and usage before raising it. A daily limit message is shown when capacity is exhausted.
+
+Use this query for verified promotional subscribers in email mode:
+
+SELECT s.email FROM subscribers s JOIN verified_subscribers v ON v.email=s.email WHERE s.marketing_opt_in=1;
+
+Turning EMAIL_DELIVERY off only changes frontend copy. Set DELIVERY_MODE off on the Worker as well to restore direct on-site delivery.
+
 ## Visitor flow
 
 Pinterest → https://bytecatstudio.com → enter email → email and optional consent saved atomically → immediate ZIP download. No checkout or card is required. This flow does not send an automatic delivery email and does not verify ownership of the submitted email address.
