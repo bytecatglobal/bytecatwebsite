@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS subscribers (email TEXT PRIMARY KEY, marketing_opt_in INTEGER NOT NULL DEFAULT 0, created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS consent_events (id TEXT PRIMARY KEY, email TEXT NOT NULL, marketing_opt_in INTEGER NOT NULL, consent_version TEXT NOT NULL, created_at INTEGER NOT NULL);
+CREATE INDEX IF NOT EXISTS consent_email ON consent_events(email);
+CREATE TABLE IF NOT EXISTS download_tokens (token TEXT PRIMARY KEY, expires_at INTEGER NOT NULL);
+CREATE INDEX IF NOT EXISTS token_expiry ON download_tokens(expires_at);
+CREATE TABLE IF NOT EXISTS rate_limits (key TEXT PRIMARY KEY, requests INTEGER NOT NULL, expires_at INTEGER NOT NULL);
+CREATE INDEX IF NOT EXISTS rate_expiry ON rate_limits(expires_at);
+CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT NOT NULL);
+INSERT OR IGNORE INTO settings VALUES ('rate_salt', lower(hex(randomblob(32))));
