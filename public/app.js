@@ -9,10 +9,13 @@ form.addEventListener('submit',async(event)=>{
  event.preventDefault();if(submit.disabled)return;email.value=email.value.trim();email.removeAttribute('aria-invalid');message.textContent='';
  if(!email.validity.valid){email.setAttribute('aria-invalid','true');message.textContent='Enter a valid email address, like you@example.com.';email.focus();return;}
  const api=window.BYTECAT_CONFIG?.signupUrl;if(!api){message.textContent='Downloads are being prepared. Please try again shortly.';return;}
- submit.disabled=true;submit.textContent='Saving your email…';
+ submit.disabled=true;submit.textContent='Preparing your calendars…';
  try{
   const response=await fetch(`${api}/subscribe`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email.value,marketing:document.querySelector('#marketing').checked,website:document.querySelector('#website').value}),signal:AbortSignal.timeout(20000)});
   const result=await response.json();if(!response.ok)throw new Error(result.error||'Your request could not be saved. Please try again.');
+  if(result.status==='check_email'){
+   document.querySelector('#email-success').hidden=false;document.querySelector('#sent-email').textContent=email.value;form.hidden=true;document.querySelector('#email-success').focus();return;
+  }
   const download=new URL(result.downloadUrl),base=new URL(api);if(download.origin!==base.origin||download.pathname!=='/download')throw new Error('Your download link could not be created. Please try again.');
   document.querySelector('#calendar-download').href=download.href;document.querySelector('#consent-result').textContent=document.querySelector('#marketing').checked?'You also opted in to studio emails. You can unsubscribe anytime.':'You have not signed up for promotional emails with this request.';
   form.hidden=true;success.hidden=false;success.focus();
@@ -20,3 +23,4 @@ form.addEventListener('submit',async(event)=>{
  finally{submit.disabled=false;submit.textContent='Get my free calendars ↗';}
 });
 document.querySelector('#start-again').addEventListener('click',()=>{success.hidden=true;form.hidden=false;form.reset();message.textContent='';email.focus();});
+document.querySelector('#email-again')?.addEventListener('click',()=>{document.querySelector('#email-success').hidden=true;form.hidden=false;message.textContent='';email.focus();});
