@@ -1,6 +1,20 @@
 # Brand, search and email upgrade — 26 October 2026
 
-## Live and verified
+## Latest activation update — 26 October 2026
+
+- Resend is now ACTIVE. Owner approved creation of the sending-only key for mail.bytecatstudio.com. It is stored as encrypted RESEND_API_KEY in the Worker, never in source.
+- Worker DELIVERY_MODE and Vercel EMAIL_DELIVERY are both verified_email. Production redeployed successfully.
+- Real test to the owner-approved launch-test address arrived in Gmail Inbox. Email link opened the confirmation page; explicit confirmation unlocked the ZIP. D1 verified=1, marketing_opt_in=0, and exactly one verified consent record.
+- The delivered ZIP SHA-256 matches the original: BCDC473A027C06CDBA66C78D0E8500CDE4094F987003B2CCD5771C59265AABF9.
+- Updated privacy notice, new terms of use, and a contact page are live at /privacy.html, /terms.html, and /contact/. Footer and download form link to the policies. Terms permit personal/household use and ask visitors to share the landing-page link instead of redistributing files.
+- Contact button now opens a page with a Gmail compose option, email-app link, and visible address. Public contact remains bytecatglobal@gmail.com until hello@bytecatstudio.com receives a verified test. Existing root Zoho MX remains unchanged. Gmail shows prior Zoho setup and a hello-address label; this alone is not current delivery proof.
+- Retried all 12 remaining Pinterest edits: print-at-home, September, and November saved and were verified. Total direct links updated: 11/20. August, June, March, April, February, October, July, May, and January still retained old links after Pinterest editing failures. Existing homepage redirect preserves all those links and campaign parameters.
+- Six automated tests passed after the policy/contact change. Live policy, terms, and contact routes return HTTP 200.
+- Gumroad remains a separate unpublished draft pending owner payout setup; the website download does not depend on Gumroad.
+
+The sections below preserve the earlier preparation record and are superseded by the activation update above.
+
+## Earlier live verification
 
 - Brand homepage: https://bytecatstudio.com/
 - Freebies library: https://bytecatstudio.com/freebies/
