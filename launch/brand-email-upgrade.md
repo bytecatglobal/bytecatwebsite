@@ -1,8 +1,10 @@
 # Brand, search and email upgrade — 26 October 2026
 
+> Historical working log. For current status, read [LAUNCH-HANDOVER.md](../LAUNCH-HANDOVER.md). Later updates supersede pending-status notes below: Pinterest links are owner-confirmed complete; notifications sender and hello contact are live; Analytics is active; Buy Me a Coffee is a draft; the brand is not limited to cats.
+
 ## Latest activation update — 26 October 2026
 
-- GA4 account 413390877 / property 560670675 created for Byte Cat Studio; website stream 16202357826, measurement ID G-2BG0D8CY1C. Malaysia reporting timezone, MYR currency, objectives Generate leads and Drive sales. Enhanced measurement is off; no automatic form tracking.
+- GA4 account, property, and website stream created for Byte Cat Studio; identifiers are recorded in the private local handover; measurement ID G-2BG0D8CY1C. Malaysia reporting timezone, MYR currency, objectives Generate leads and Drive sales. Enhanced measurement is off; no automatic form tracking.
 - GA4 Realtime verified: one active user, two page_view events (brand homepage and calendar page), and one freebie_request event from the approved test. Analytics is receiving live data.
 - Website Analytics loads only after visitor consent. Reject/accept behavior checked live: Google tag count 0 before consent, 0 after reject, 1 after allow. Footer Cookie settings supports withdrawal. Consent choice and Analytics cookies expire after 180 days. Google signals and advertising personalization are disabled.
 - Page-view URLs discard arbitrary query values; known Pinterest campaign values are allowlisted. Referrers retain only their origin. The freebie_request event sends only the fixed freebie ID, never an email, marketing choice, confirmation token, or download token. This counts a successful email request, NOT a verified address or completed download.
