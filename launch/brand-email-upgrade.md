@@ -2,6 +2,15 @@
 
 ## Latest activation update — 26 October 2026
 
+- GA4 account 413390877 / property 560670675 created for Byte Cat Studio; website stream 16202357826, measurement ID G-2BG0D8CY1C. Malaysia reporting timezone, MYR currency, objectives Generate leads and Drive sales. Enhanced measurement is off; no automatic form tracking.
+- GA4 Realtime verified: one active user, two page_view events (brand homepage and calendar page), and one freebie_request event from the approved test. Analytics is receiving live data.
+- Website Analytics loads only after visitor consent. Reject/accept behavior checked live: Google tag count 0 before consent, 0 after reject, 1 after allow. Footer Cookie settings supports withdrawal. Consent choice and Analytics cookies expire after 180 days. Google signals and advertising personalization are disabled.
+- Page-view URLs discard arbitrary query values; known Pinterest campaign values are allowlisted. Referrers retain only their origin. The freebie_request event sends only the fixed freebie ID, never an email, marketing choice, confirmation token, or download token. This counts a successful email request, NOT a verified address or completed download.
+- Updated privacy notice describes optional Analytics. All nine automated tests passed, including consent rejection, withdrawal, expiry, and sensitive URL filtering. A live approved test request succeeded. GA home showed one active visitor from Malaysia during setup.
+- The owner completed the Analytics agreement screen in the browser; the assistant did not click agreement acceptance. New-property reports can take time to populate. Future sales require checkout/purchase event integration when a shop is actually added; no purchase tracking is claimed now.
+
+- Subsequent Pinterest retry: August and October direct links saved and verified. Total now 13/20. June, March, April, February, July, May, and January still retained the original working redirect links after attempts. January's final save explicitly displayed “Sorry! There was an error editing your Pin.” No Pins were deleted or republished.
+
 - Resend is now ACTIVE. Owner approved creation of the sending-only key for mail.bytecatstudio.com. It is stored as encrypted RESEND_API_KEY in the Worker, never in source.
 - Worker DELIVERY_MODE and Vercel EMAIL_DELIVERY are both verified_email. Production redeployed successfully.
 - Real test to the owner-approved launch-test address arrived in Gmail Inbox. Email link opened the confirmation page; explicit confirmation unlocked the ZIP. D1 verified=1, marketing_opt_in=0, and exactly one verified consent record.
