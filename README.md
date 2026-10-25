@@ -1,5 +1,7 @@
 # Byte Cat Studio
 
+**Resume here:** [Current launch handover](LAUNCH-HANDOVER.md) — live services, verified tests, owner-confirmed Pinterest completion, broad brand direction, and next steps. This handover supersedes older launch status notes.
+
 Free 2027 cat calendar website with on-site email collection. Static frontend on Vercel, Cloudflare Worker API, and a private Cloudflare D1 database. Node 20+ for building; Node 22+ for SQLite-backed integration tests (tested with Node 24). No package dependencies.
 
 ## Brand pages and search
@@ -13,9 +15,9 @@ scripts/pages.mjs generates these pages from the original calendar template duri
 
 ## Resend verification upgrade
 
-Sender domain mail.bytecatstudio.com is verified in Resend. Three new DNS records were added under mail; Zoho and website records were preserved. Backend confirmation code and D1 tables are deployed. Email mode is inactive until the restricted sending credential is approved and configured.
+Sender domain mail.bytecatstudio.com is verified in Resend. Three new DNS records were added under mail; Zoho and website records were preserved. Backend confirmation code and D1 tables are deployed. Email mode is active and tested. Sender: notifications@mail.bytecatstudio.com; reply-to: hello@bytecatstudio.com. The restricted sending credential is stored encrypted in Cloudflare.
 
-Activation order:
+Activation order for a fresh deployment (already completed in production):
 1. Store a Resend Sending access key scoped to mail.bytecatstudio.com as encrypted Worker secret RESEND_API_KEY. Never commit or put it in frontend configuration.
 2. Set Worker variable DELIVERY_MODE to verified_email and deploy.
 3. Set Vercel build variable EMAIL_DELIVERY to verified_email and redeploy so signup and privacy copy match.
@@ -59,7 +61,7 @@ Only promotional opt-ins:
 SELECT email FROM subscribers WHERE marketing_opt_in = 1;
 ```
 
-Handle unsubscribe requests sent to bytecatglobal@gmail.com promptly. Update the specified subscriber to marketing_opt_in = 0 and retain a dated consent event; never import calendar-only addresses into marketing campaigns. Before any future campaign, use the current opted-in list and exclude the launch test address.
+Handle unsubscribe requests sent to hello@bytecatstudio.com promptly. Update the specified subscriber to marketing_opt_in = 0 and retain a dated consent event; never import calendar-only addresses into marketing campaigns. Before any future campaign, use the current opted-in list and exclude the launch test address.
 
 ## Files and privacy
 
