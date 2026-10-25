@@ -1,0 +1,5 @@
+const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const group=document.querySelector('.months');
+for(const [i,month] of months.entries()){const button=document.createElement('button');button.type='button';button.textContent=month.slice(0,3);button.setAttribute('aria-label',`Preview ${month} 2027`);button.setAttribute('aria-pressed',String(i===0));button.addEventListener('click',()=>{for(const other of group.children)other.setAttribute('aria-pressed','false');button.setAttribute('aria-pressed','true');const img=document.querySelector('#calendar');img.src=`/previews/${month}%202027.png`;img.alt=`${month} 2027 cat calendar preview`;});group.append(button);}
+const url=window.BYTECAT_CONFIG?.gumroadUrl;
+if(url){try{const u=new URL(url);if(u.protocol==='https:'&&(u.hostname==='gumroad.com'||u.hostname.endsWith('.gumroad.com'))){const link=document.querySelector('#download');link.href=u.href;link.hidden=false;document.querySelector('#pending').hidden=true;}}catch{}}
