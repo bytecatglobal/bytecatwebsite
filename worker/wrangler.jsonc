@@ -1,0 +1,6 @@
+{
+  "name": "bytecat-calendars",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-25",
+  "d1_databases": [{"binding":"DB","database_name":"bytecat-subscribers","database_id":"4892765d-3800-4daf-bb9d-449fe8ee4f81"}]
+}
