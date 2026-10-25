@@ -101,14 +101,14 @@ Calendar board: **2027 Cat Calendars | Free Printables**. Keep this collection-s
 
 Future shop board: **Digital Shop | Byte Cat Studio**. Create when products exist; do not imply an empty shop is live.
 
-## Buy Me a Coffee — newly added, draft setup
+## Buy Me a Coffee — live
 
 - Owner shared https://buymeacoffee.com/complete-your-page . Signed-in setup form is available.
 - Filled Name **Byte Cat Studio**, website **https://bytecatstudio.com/**, and the broad About copy below. Owner explicitly corrected “not just cat inspired.”
-- **Next was not clicked; page not confirmed published.** Profile image upload and any remaining setup are unfinished. No payout setup or financial agreement was completed. No public creator URL has been recorded yet. Keep the setup tab as a handoff if available; draft fields may not persist if it closes.
+- Public page https://buymeacoffee.com/bytecat is LIVE, confirmed by owner and opened successfully in Chrome. The page shows Support Byte Cat Studio and the broad creative-studio About copy. Payment processing/payout availability was not tested; no payment was made. A cover image can still be added.
 - Use as optional “Support the studio” link on the site/footer or after a free download. Do not replace or gate the free calendar flow.
 
-Draft About:
+About copy (now visible on the live page, with minor owner edits):
 
 > Little things. Brighter days.
 >
@@ -161,7 +161,7 @@ Static build supports Node 20+; SQLite integration tests need Node 22+ (tested o
 ## Next session priorities
 
 1. Read this file first and respect the latest broad creative-brand direction.
-2. Finish Buy Me a Coffee profile image/setup; record the actual public page URL, then add an optional support link if requested. Owner handles financial setup and any required agreement acceptance.
+2. Buy Me a Coffee is live at https://buymeacoffee.com/bytecat. Recommended website placements: footer and below the successful calendar download button, labelled Support the studio. These links have been recommended but NOT yet added. Support must remain optional; avoid gating free downloads. Owner handles any remaining financial setup.
 3. Apply broad brand positioning to profile/homepage/SEO when requested; keep calendar landing copy specific.
 4. Confirm hello mailbox delivery if needed; leave Zoho and Resend DNS intact.
 5. Build additional freebie collections and a real shop only once products/assets/checkout provider are selected. Extend the current calendar-specific database/delivery design to explicit product IDs and entitlements before adding multiple products.
