@@ -7,3 +7,6 @@ CREATE TABLE IF NOT EXISTS rate_limits (key TEXT PRIMARY KEY, requests INTEGER N
 CREATE INDEX IF NOT EXISTS rate_expiry ON rate_limits(expires_at);
 CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT NOT NULL);
 INSERT OR IGNORE INTO settings VALUES ('rate_salt', lower(hex(randomblob(32))));
+CREATE TABLE IF NOT EXISTS verification_requests (token TEXT PRIMARY KEY, email TEXT NOT NULL, marketing INTEGER NOT NULL, created_at INTEGER NOT NULL, expires_at INTEGER NOT NULL, download_token TEXT NOT NULL, consumed_at INTEGER);
+CREATE INDEX IF NOT EXISTS verification_expiry ON verification_requests(expires_at);
+CREATE TABLE IF NOT EXISTS verified_subscribers (email TEXT PRIMARY KEY, verified_at INTEGER NOT NULL);
