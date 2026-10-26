@@ -51,7 +51,7 @@ Use the owner-specified Byte Cat Chrome profile (recorded in the private local h
 - Vercel project: bytecatwebsite, the studio account; connected to GitHub main. Build `npm run build`, output `dist`.
 - Vercel production variable: `EMAIL_DELIVERY=verified_email`.
 - Cloudflare account: use the studio account; account identifiers are in the private local handover.
-- Worker: bytecat-calendars, custom domain https://api.bytecatstudio.com. Latest email/recovery deployment observed: 802f85d7.
+- Worker: bytecat-calendars, custom domain https://api.bytecatstudio.com. Latest deployment observed: 81092ca4 (optional support link below confirmed download).
 - Worker variable: `DELIVERY_MODE=verified_email`; encrypted secret: `RESEND_API_KEY`. **Never put the secret in source, frontend, or handover files.**
 - D1: bytecat-subscribers, binding DB. Schema is in worker/schema.sql.
 - Resend domain: mail.bytecatstudio.com, verified, Tokyo region; sending-only key scoped to that domain is installed.
@@ -161,7 +161,7 @@ Static build supports Node 20+; SQLite integration tests need Node 22+ (tested o
 ## Next session priorities
 
 1. Read this file first and respect the latest broad creative-brand direction.
-2. Buy Me a Coffee is live at https://buymeacoffee.com/bytecat. Recommended website placements: footer and below the successful calendar download button, labelled Support the studio. These links have been recommended but NOT yet added. Support must remain optional; avoid gating free downloads. Owner handles any remaining financial setup.
+2. Buy Me a Coffee is live at https://buymeacoffee.com/bytecat. Published website placements: footer and below the successful calendar download button, labelled Support the studio. Both links are LIVE: sitewide footer and below the confirmed download button. Both open Buy Me a Coffee in a new tab without passing email or download tokens. Verified fresh test email, confirmation, successful free ZIP delivery with matching SHA-256, mobile confirmation layout, all nine existing tests, and production build. Support must remain optional; avoid gating free downloads. Owner handles any remaining financial setup.
 3. Apply broad brand positioning to profile/homepage/SEO when requested; keep calendar landing copy specific.
 4. Confirm hello mailbox delivery if needed; leave Zoho and Resend DNS intact.
 5. Build additional freebie collections and a real shop only once products/assets/checkout provider are selected. Extend the current calendar-specific database/delivery design to explicit product IDs and entitlements before adding multiple products.
